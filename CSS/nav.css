@@ -1,0 +1,33 @@
+@import url(./reset.css);
+
+nav{
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid blue;
+    padding: .5rem 1rem;
+}
+/* 버튼 컨테이너 */
+nav .btns{
+    position: relative;
+    display: flex;
+}
+/* 시작하기 버튼 */
+nav .auth{
+    border: 1px solid red;
+    width: 5rem;
+    height: 2rem;
+
+}
+/* 설정 버튼 */
+nav .set-btn{
+    
+}
+/* 설정 창 */
+nav .setting{
+    position: absolute;
+    bottom: -5rem;
+}
