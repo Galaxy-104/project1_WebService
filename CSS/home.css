@@ -1,1 +1,16 @@
 @import url(nav.css);
+
+main{
+    margin-top: 5rem;
+    padding: 1rem;
+}
+
+/* 캘린더 디자인 */
+main .calendar{
+    border: 1px solid #909090;
+    display: flex;
+    flex-direction: column;
+}
+main .calendar > div{
+    display: flex;
+}

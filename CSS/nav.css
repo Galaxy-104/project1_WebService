@@ -9,6 +9,7 @@ nav{
     align-items: center;
     border-bottom: 1px solid #909090;
     padding: .5rem 1rem;
+    top: 0;
 }
 
 /* 버튼 컨테이너 */
