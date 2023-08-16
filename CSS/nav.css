@@ -7,7 +7,7 @@ nav{
     position: fixed;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid blue;
+    border-bottom: 1px solid #909090;
     padding: .5rem 1rem;
 }
 /* 버튼 컨테이너 */
@@ -15,19 +15,64 @@ nav .btns{
     position: relative;
     display: flex;
 }
+nav .btns > div{
+    margin: .2rem;
+}
 /* 시작하기 버튼 */
 nav .auth{
-    border: 1px solid red;
+    border: 1px solid #909090;
     width: 5rem;
     height: 2rem;
-
+    border-radius: .4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /* 설정 버튼 */
-nav .set-btn{
-    
+nav .set-btn button{
+    border: none;
+    background: none;
+}
+nav .set-btn button span{
+    cursor: pointer;
+    font-size: 1.7rem;
 }
 /* 설정 창 */
 nav .setting{
     position: absolute;
-    bottom: -5rem;
+    bottom: -7rem;
+    right: .5rem;
+    border: 1px solid #909090;
+    width: 12rem;
+    padding: .5rem;
+}
+/* 모드 설정 */
+nav .setting .mode{
+    width: 100%;
+    display: grid;
+}
+nav .setting .mode h3{
+    grid-column: 1 / 3;
+    font-size: 1.2rem;
+    padding-bottom: .2rem;
+    margin-bottom: .2rem;
+    border-bottom: 1px solid rgb(223, 220, 220);
+}
+nav .setting .mode > div{
+    font-size: 1rem;
+    border: 1px solid #909090;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav .setting .mode > div span{
+    position: relative;
+}
+nav .setting .mode > div span span{
+    position: absolute;
+    top: -.75rem;
+    right: -2rem;
 }
