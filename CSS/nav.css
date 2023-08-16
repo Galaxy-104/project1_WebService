@@ -10,6 +10,7 @@ nav{
     border-bottom: 1px solid #909090;
     padding: .5rem 1rem;
 }
+
 /* 버튼 컨테이너 */
 nav .btns{
     position: relative;
@@ -18,6 +19,7 @@ nav .btns{
 nav .btns > div{
     margin: .2rem;
 }
+
 /* 시작하기 버튼 */
 nav .auth{
     border: 1px solid #909090;
@@ -28,17 +30,54 @@ nav .auth{
     justify-content: center;
     align-items: center;
 }
+
+/* 계정 설정 버튼 */
+nav .account{
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid #909090;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+nav .account a span{
+    font-size: 2rem;
+}
+
+/* 통계 버튼 */
+nav .stats{
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid #909090;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+nav .account a span{
+    font-size: 2rem;
+}
+
 /* 설정 버튼 */
 nav .set-btn button{
     border: none;
     background: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid #909090;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
 }
 nav .set-btn button span{
     cursor: pointer;
-    font-size: 1.7rem;
+    font-size: 2rem;
 }
 /* 설정 창 */
 nav .setting{
+    display: none;
     position: absolute;
     bottom: -7rem;
     right: .5rem;
