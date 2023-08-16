@@ -25,6 +25,11 @@ main .calendar > div > div{
 }
 main .calendar .calendar_header{
     height: 5rem;
+    justify-content: space-between;
+}
+main .calendar .calendar_header span{
+    cursor: pointer;
+    margin: 2.5rem;
 }
 main .calendar .calendar_weekdays > div{
     border: 1px solid #909090;

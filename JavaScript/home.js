@@ -12,21 +12,15 @@ const today = new Date()
 const thisYear = today.getFullYear()
 const thisMonth = today.getMonth() + 1
 
-const days = getDays()
-function getDays(){
-    let arr = []
-    for(let i = 1; i <= getLastDate(thisYear, thisMonth); i++){
-        arr.push({ day: i, dayOfWeek: dayOfWeek[getDayOfWeek(thisYear, thisMonth, i)]})
-    }
-    return arr
-}
 
-function createCalendar(){
+
+function createCalendar(y, m){
     let index = 0
     let isDay = false
     calendarTitle.innerHTML = `
-    ${monthName[thisMonth - 1]} ${thisYear}`
+    ${monthName[m - 1]} ${y}`
     createWeeks()
+    const days = getDays(y, m)
     contents.innerHTML = ``
     while(!isDay){
         if(dayOfWeek[index] == days[0].dayOfWeek){
@@ -48,7 +42,7 @@ function createCalendar(){
 
 
 }
-createCalendar()
+createCalendar(thisYear, thisMonth)
 
 function createWeeks(){
     weeks.innerHTML = ``
@@ -73,6 +67,45 @@ function createBlank(){
     contents.appendChild(blank)
 }
 
-console.log(days)
-console.log(getLastDate(thisYear, thisMonth))
-console.log(thisMonth)
+function getDays(y, m){
+    let arr = []
+    for(let i = 1; i <= getLastDate(y, m); i++){
+        arr.push({ day: i, dayOfWeek: dayOfWeek[getDayOfWeek(y, m, i)]})
+    }
+    return arr
+}
+
+let year = thisYear
+let month = thisMonth
+let monthIndex = 0
+let yearIndex = 0
+// console.log(days)
+// console.log(getLastDate(thisYear, thisMonth))
+// console.log(thisMonth)
+
+calendarHeader.addEventListener('click', function(event){
+    
+    if(event.target.className.includes('left')){
+        monthIndex--
+        let month = thisMonth + monthIndex
+        if(month < 1){
+            yearIndex--
+            month = 12
+            monthIndex = 12 - thisMonth
+        }
+        let year = thisYear + yearIndex
+        createCalendar(year, month)
+        console.log(month, monthIndex)
+    }else if(event.target.className.includes('right')){
+        monthIndex++
+        let month = thisMonth + monthIndex
+        if(month > 12){
+            yearIndex++
+            month = 1
+            monthIndex = -thisMonth + 1
+        }
+        let year = thisYear + yearIndex
+        createCalendar(year, month)
+        console.log(month, monthIndex)
+    }
+})
