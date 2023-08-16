@@ -15,7 +15,7 @@ const thisMonth = today.getMonth() + 1
 const days = getDays()
 function getDays(){
     let arr = []
-    for(let i = 1; i < getLastDate(thisYear, thisMonth); i++){
+    for(let i = 1; i <= getLastDate(thisYear, thisMonth); i++){
         arr.push({ day: i, dayOfWeek: dayOfWeek[getDayOfWeek(thisYear, thisMonth, i)]})
     }
     return arr
@@ -74,3 +74,5 @@ function createBlank(){
 }
 
 console.log(days)
+console.log(getLastDate(thisYear, thisMonth))
+console.log(thisMonth)
