@@ -38,13 +38,11 @@ function createCalendar(y, m){
         if( i >= days.length){
             createBlank()
         }else{
-            const checkTitle = document.querySelector('.calendar .calendar_header h2')
             const dateDiv = document.createElement('div')
             dateDiv.innerHTML = `${days[i].day}`
             
             // 오늘 날짜 확인
-            if(checkTitle.innerHTML.includes(`${String(today.getFullYear())}`) &&
-            checkTitle.innerHTML.includes(`${String(monthName[today.getMonth()])}`)
+            if( y == today.getFullYear() && m == today.getMonth() + 1
             && today.getDate() === days[i].day){
                 console.log('오늘')
                 dateDiv.className = 'today'
