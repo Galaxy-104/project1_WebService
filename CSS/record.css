@@ -5,29 +5,46 @@
 main section{
     margin: .5rem 0;
     width: 90%;
+    max-width: 70rem;
 }
 main section > *{
-    border: 1px solid #909090;
     margin: .5rem;
 } 
 main .record{
     border: 1px solid #909090;
-    
+    border-radius: 1rem 1rem 0 0;
+    background-color: #fff;
+    margin-bottom: 0;
+    border-bottom: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 main .record h2{
     font-size: 2rem;
+    width: 95%;
+    text-align: center;
+    border-bottom: 1px solid var(--primary-color);
+    margin: 2rem 0;
 }
-main .record > div{
+main .record > div:not(.date){
     font-size: 1.5rem;
     height: 4rem;
     display: flex;
     align-items: center;
 }
+main .record .date{
+    position: absolute;
+    left: 1rem;
+    top: 2.7rem;
+}
 main .record .date > span{
     margin: .5rem;
 }
 main .record .time span{
-    border: 1px solid #909090;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
     margin: 0 .5rem;
     width: 5.5rem;
     height: 2.5rem;
@@ -35,6 +52,14 @@ main .record .time span{
     justify-content: center;
     align-items: center;
     border-radius: .3rem;
+}
+main .record .time span:hover{
+    cursor: pointer;
+    background-color: var(--hover-color);
+}
+main .record .time span.select{
+    background-color: var(--primary-color);
+    color: #fff;
 }
 main .record .food > div{
     display: flex;
@@ -55,12 +80,47 @@ main .record > button#add-log{
     align-items: center;
     font-size: 1.2rem;
     border-radius: .3rem;
+    border: none;
+    background-color: var(--primary-color);
+    color: #fff;
+    margin: 0 auto;
+}
+main .record > button#add-log:hover{
+    background-color: var(--secondary-color);
+    cursor: pointer;
 }
 
-/* 기록 리스트 */
+/* 오늘의 기록 */
 main .today-log{
     border: 1px solid #909090;
+    width: 90%;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 0 0 1rem 1rem;
+    margin-top: 0;
+    border-top: none;
 }
-main .today-log div h3{
+main .today-log > *{
+    margin: .5rem 0;
+}
+main .today-log h2{
+    font-size: 2rem;
+    margin-bottom: 4rem;
+}
+main .today-log > div{
+    position: relative;
+    min-height: 3rem;
+}
+main .today-log > div:nth-child(1){
+    margin-top: 3rem;
+}
+main .today-log > div h3{
     font-size: 1.5rem;
+    position: absolute;
+    top: -3.7rem;
+    margin-left: .5rem;
+}
+main .today-log > div div.list{
+    border-top: 1px solid var(--blank-color);
+    min-height: .5rem;
 }
