@@ -58,9 +58,13 @@ main .calendar .calendar_contents > div{
 main .calendar .calendar_contents > div:not(.blank){
     cursor: pointer;
 }
-main .calendar .calendar_contents > div:not(.blank):hover{
+main .calendar .calendar_contents > div.day:hover{
     background-color: var(--hover-color);
 }
 main .calendar .calendar_contents > div.blank{
     background-color: var(--blank-color);
+}
+main .calendar .calendar_contents > div.today{
+    background-color: var(--primary-color);
+    color: #fff;
 }

@@ -22,6 +22,8 @@ function createCalendar(y, m){
     createWeeks()
     const days = getDays(y, m)
     contents.innerHTML = ``
+
+    // 날짜 없는 부분에 빈칸 생성
     while(!isDay){
         if(dayOfWeek[index] == days[0].dayOfWeek){
             isDay = true
@@ -30,20 +32,35 @@ function createCalendar(y, m){
             index++
         }
     }
+
+    // 달력에 날짜 생성
     for(let i = 0; i < 42 - index; i++){
         if( i >= days.length){
             createBlank()
         }else{
+            const checkTitle = document.querySelector('.calendar .calendar_header h2')
             const dateDiv = document.createElement('div')
             dateDiv.innerHTML = `${days[i].day}`
+            
+            // 오늘 날짜 확인
+            if(checkTitle.innerHTML.includes(`${String(today.getFullYear())}`) &&
+            checkTitle.innerHTML.includes(`${String(monthName[today.getMonth()])}`)
+            && today.getDate() === days[i].day){
+                console.log('오늘')
+                dateDiv.className = 'today'
+            }else{
+                dateDiv.className = 'day'
+            }
             contents.appendChild(dateDiv)
         }
     }
 
+    // 오늘 표시하기
 
 }
 createCalendar(thisYear, thisMonth)
 
+// 요일 제목 생성
 function createWeeks(){
     weeks.innerHTML = ``
     for(let i = 0; i < 7; i++){
@@ -53,14 +70,17 @@ function createWeeks(){
     }
 }
 
+// 해당 월이 며칠까지인지 확인
 function getLastDate(year, month){
     return new Date(year, month, 0).getDate()
 }
 
+// 해당 날짜의 요일 확인
 function getDayOfWeek(year, month, day){
     return new Date(year, month - 1, day).getDay()
 }
 
+// 빈칸 생성
 function createBlank(){
     const blank = document.createElement('div')
     blank.className = 'blank'
@@ -95,7 +115,7 @@ calendarHeader.addEventListener('click', function(event){
         }
         let year = thisYear + yearIndex
         createCalendar(year, month)
-        console.log(month, monthIndex)
+        // console.log(month, monthIndex)
     }else if(event.target.className.includes('right')){
         monthIndex++
         let month = thisMonth + monthIndex
@@ -106,6 +126,6 @@ calendarHeader.addEventListener('click', function(event){
         }
         let year = thisYear + yearIndex
         createCalendar(year, month)
-        console.log(month, monthIndex)
+        // console.log(month, monthIndex)
     }
 })
