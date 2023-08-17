@@ -106,7 +106,7 @@ let yearIndex = 0
 // console.log(getLastDate(thisYear, thisMonth))
 // console.log(thisMonth)
 
-// 이전 / 이후 달로 이동하는 버튼 구현
+// 이전 / 다음 달로 이동하는 버튼 구현
 calendarHeader.addEventListener('click', function(event){
     
     if(event.target.className.includes('left')){
