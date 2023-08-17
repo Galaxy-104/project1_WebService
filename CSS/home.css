@@ -15,4 +15,35 @@ main .add-record-btn a{
     align-items: center;
     border: 1px solid #909090;
     border-radius: .5rem;
+    color: var(--primary-color);
+}
+
+/* 지난 기록 */
+main .calorie-log{
+    border: 1px solid #909090;
+    width: 90%;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 1rem;
+}
+main .calorie-log > *{
+    margin: .5rem 0;
+}
+main .calorie-log h2{
+    font-size: 2rem;
+    margin-bottom: 4rem;
+}
+main .calorie-log > div{
+    position: relative;
+    min-height: 3rem;
+}
+main .calorie-log > div h3{
+    font-size: 1.5rem;
+    position: absolute;
+    top: -2rem;
+}
+main .calorie-log > div div.list{
+    border-top: 1px solid var(--blank-color);
+    min-height: .5rem;
 }

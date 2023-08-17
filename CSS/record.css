@@ -61,6 +61,6 @@ main .record > button#add-log{
 main .today-log{
     border: 1px solid #909090;
 }
-main .today-log div h2{
+main .today-log div h3{
     font-size: 1.5rem;
 }

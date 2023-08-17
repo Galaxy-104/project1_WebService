@@ -53,8 +53,13 @@ function createCalendar(y, m){
         }
     }
 
-    // 오늘 표시하기
-
+    if(m !== today.getMonth() + 1){
+        const todayBtn = document.createElement('button')
+        todayBtn.type = 'button'
+        todayBtn.innerText = 'Today'
+        contents.appendChild(todayBtn)
+    }
+    
 }
 createCalendar(thisYear, thisMonth)
 
@@ -126,4 +131,14 @@ calendarHeader.addEventListener('click', function(event){
         createCalendar(year, month)
         // console.log(month, monthIndex)
     }
+
+    const moveTodayBtn = document.querySelector('.calendar .calendar_contents button')
+    if(moveTodayBtn !== null){
+        moveTodayBtn.addEventListener('click', function(event){
+            createCalendar(thisYear, thisMonth)
+            monthIndex = 0
+            yearIndex = 0
+        }) 
+    }
+        
 })

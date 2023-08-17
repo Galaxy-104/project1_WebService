@@ -8,6 +8,8 @@ nav{
     border-bottom: 1px solid #909090;
     padding: .5rem 1rem;
     top: 0;
+    background-color: var(--body-background-color);
+    z-index: 2;
 }
 
 /* 버튼 컨테이너 */
