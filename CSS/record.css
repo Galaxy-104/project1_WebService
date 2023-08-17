@@ -1,0 +1,66 @@
+@import url(./nav.css);
+@import url(./calendar.css);
+
+/* 기록하기 디자인 */
+main section{
+    margin: .5rem 0;
+    width: 90%;
+}
+main section > *{
+    border: 1px solid #909090;
+    margin: .5rem;
+} 
+main .record{
+    border: 1px solid #909090;
+    
+}
+main .record h2{
+    font-size: 2rem;
+}
+main .record > div{
+    font-size: 1.5rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+}
+main .record .date > span{
+    margin: .5rem;
+}
+main .record .time span{
+    border: 1px solid #909090;
+    margin: 0 .5rem;
+    width: 5.5rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .3rem;
+}
+main .record .food > div{
+    display: flex;
+    align-items: center;
+    margin: 0 .5rem;
+}
+main .record .food > div span{
+    margin: 0 .5rem;
+}
+main .record .food > div input{
+    height: 2rem;
+}
+main .record > button#add-log{
+    width: 8rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    border-radius: .3rem;
+}
+
+/* 기록 리스트 */
+main .today-log{
+    border: 1px solid #909090;
+}
+main .today-log div h2{
+    font-size: 1.5rem;
+}
