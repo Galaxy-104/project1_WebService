@@ -1,3 +1,4 @@
+@import url(./global.css);
 
 main{
     display: flex;
@@ -9,12 +10,15 @@ main{
 
 /* 캘린더 디자인 */
 main .calendar{
-    border: 1px solid #909090;
     display: flex;
     flex-direction: column;
     width: 30rem;
     height: 35rem;
     margin: 1rem;
+    font-family: 'Lato', sans-serif;
+    border-radius: .5rem;
+    overflow: hidden;
+    background-color: #fff;
 }
 main .calendar > div{
     display: flex;
@@ -29,21 +33,34 @@ main .calendar > div > div{
 main .calendar .calendar_header{
     height: 5rem;
     justify-content: space-between;
+    background-color: var(--primary-color);
+    color: #fff;
+}
+main .calendar .calendar_header h2{
+    font-size: 1.7rem;
 }
 main .calendar .calendar_header span{
     cursor: pointer;
     margin: 2.5rem;
 }
 main .calendar .calendar_weekdays > div{
-    border: 1px solid #909090;
     width: calc(30rem / 7);
     height: calc(30rem / 7);
+    color: var(--primary-color);
 }
 main .calendar .calendar_contents{
     display: grid;
     grid-template-columns: repeat(7, 1fr);
 }
 main .calendar .calendar_contents > div{
-    border: 1px solid #909090;
     height: calc(30rem / 7);
+}
+main .calendar .calendar_contents > div:not(.blank){
+    cursor: pointer;
+}
+main .calendar .calendar_contents > div:not(.blank):hover{
+    background-color: var(--hover-color);
+}
+main .calendar .calendar_contents > div.blank{
+    background-color: var(--blank-color);
 }
