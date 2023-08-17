@@ -106,6 +106,7 @@ let yearIndex = 0
 // console.log(getLastDate(thisYear, thisMonth))
 // console.log(thisMonth)
 
+// 이전 / 이후 달로 이동하는 버튼 구현
 calendarHeader.addEventListener('click', function(event){
     
     if(event.target.className.includes('left')){
@@ -141,4 +142,20 @@ calendarHeader.addEventListener('click', function(event){
         }) 
     }
         
+})
+
+// 원하는 날짜 선택하기
+contents.addEventListener('click', function(event){
+    const selectDay = calendar.querySelector('div.select')
+    if(event.target.className.includes('day') && 
+    !event.target.className.includes('today')){
+        if(selectDay !== null){
+            selectDay.classList.remove('select')
+        }
+        event.target.classList.add('select')
+    }else if(event.target.className.includes('today') && selectDay !== null){
+        selectDay.classList.remove('select')
+    }else if(selectDay !== null){
+        selectDay.classList.remove('select')
+    }
 })

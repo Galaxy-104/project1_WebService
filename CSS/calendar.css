@@ -69,6 +69,10 @@ main .calendar .calendar_contents > div.today{
     background-color: var(--primary-color);
     color: #fff;
 }
+main .calendar .calendar_contents div.select{
+    background-color: var(--hover-color);
+    color: var(--primary-color);
+}
 main .calendar .calendar_contents > button{
     position: absolute;
     bottom: .5rem;
