@@ -1,15 +1,20 @@
 nav{
     width: 100%;
     height: 5rem;
-    display: flex;
     position: fixed;
-    justify-content: space-between;
-    align-items: center;
     border-bottom: 1px solid #909090;
     padding: .5rem 1rem;
     top: 0;
     background-color: var(--body-background-color);
     z-index: 2;
+}
+nav .nav-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 70rem;
+    height: 100%;
+    margin: 0 auto;
 }
 
 /* 버튼 컨테이너 */
