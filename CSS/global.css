@@ -8,6 +8,9 @@
     --hover-color: #F8F8F8;
     --body-background-color: #F5F1E9;
     --text-color: #787878;
+    --dark-grey: rgb(44, 62, 80); 
+    --join-primary-color:  rgb(243, 156, 18);
+    --join-secondary-color: rgb(241, 196, 15);
 }
 
 body{

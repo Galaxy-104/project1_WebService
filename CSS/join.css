@@ -1,0 +1,79 @@
+@import url(reset.css);
+@import url(global.css);
+
+div.container{
+    border: 1px solid #909090;
+    width: 35rem;
+    height: 35rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: .5rem;
+}
+
+div.container form section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+div.container form section label{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+div.container form section > *{
+    width: 25rem;
+    height: 3rem;
+    border-bottom: 1px solid #909090;
+    padding: 0 1rem;
+}
+div.container form section label input{
+    margin-left: .5rem;
+    border: none;
+    height: 1.5rem;
+}
+
+div.container form section.login-info{
+    margin-bottom: 1.5rem;
+}
+
+div.container form section.user-info .body-profile{
+    display: flex;
+}
+div.container form section.user-info .body-profile label:nth-child(2){
+    margin-left: 1rem;
+}
+div.container form section.user-info .body-profile label input{
+    width: 7.5rem;
+}
+
+div.container form div.submit{
+    width: 7rem;
+    height: 2.5rem;
+    margin: 1rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .3rem;
+    overflow: hidden;
+}
+div.container form div.submit input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: var(--text-color);
+    color: #fff;
+    font-size: 1rem;
+    letter-spacing: .05rem;
+}
+
+div.container form div.submit input.active{
+    cursor: pointer;
+    background-color: var(--primary-color);
+}

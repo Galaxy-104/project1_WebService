@@ -4,9 +4,100 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calorie Diary - Join</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../CSS/join.css">
 </head>
 <body>
+    <div class="container">
+        <header>
+            <a href="../index.html">
+                <span class="material-symbols-rounded">
+                    food_bank
+                </span>
+            </a>
+        </header>
+
+        <form action="/" method="post">
+            <section class="login-info">
+                <label for="join-id">
+                    <span class="material-symbols-outlined">
+                        Person
+                    </span>
+                    <input type="text" id="join-id" placeholder="아이디" required>
+                </label>
+
+                <label for="join-password">
+                    <span class="material-symbols-outlined">
+                        lock
+                    </span>
+                    <input type="password" name="" id="join-password" placeholder="비밀번호" required>
+                    <div class="visibility">
+                        <span class="material-symbols-outlined on active">
+                            visibility
+                        </span>
+                        <span class="material-symbols-outlined off">
+                            visibility_off
+                        </span>
+                    </div>
+                </label>
+
+                <label for="join-email">
+                    <span class="material-symbols-outlined">
+                        mail
+                    </span>
+                    <input type="email" name="" id="join-email" placeholder="이메일" required>
+                </label>
+            </section>
+
+            <section class="user-info">
+                <label for="user-name">
+                    <span class="material-symbols-outlined">
+                        Person
+                    </span>
+                    <input type="text" id="user-name" placeholder="이름">
+                </label>
+
+                <label for="user-contact">
+                    <span class="material-symbols-outlined">
+                        phone_iphone
+                    </span>
+                    <input type="text" id="user-contact" placeholder="연락처">
+                </label>
+
+                <div class="body-profile">
+                    <label for="user-height">
+                        <span class="material-symbols-outlined">
+                            boy
+                        </span>
+                        <input type="text" id="user-heigth" placeholder="신장">
+                        <span>cm</span>
+                    </label>
+
+                    <label for="user-weigth">
+                        <span class="material-symbols-outlined">
+                            monitor_weight
+                        </span>
+                        <input type="text" id="user-weight" placeholder="체중">
+                        <span>kg</span>
+                    </label>
+                </div>
+                
+                <label for="target-calorie">
+                    <span class="material-symbols-outlined">
+                        flag
+                    </span>
+                    <input type="text" id="target-calorie" placeholder="목표 칼로리">
+                    <span>Kcal</span>
+                </label>
+            </section>
+            <div class="submit">
+                <input type="submit" value="가입하기">
+            </div>
+        </form>
+    </div>
     
 </body>
 </html>
