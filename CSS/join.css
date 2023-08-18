@@ -42,6 +42,20 @@ div.container form section label input{
 div.container form section.login-info{
     margin-bottom: 1.5rem;
 }
+div.container form section.login-info label[for="join-password"]{
+    position: relative;
+}
+div.container form section.login-info label[for="join-password"] .visibility{
+    position: absolute;
+    right: 1rem;
+    cursor: pointer;
+}
+div.container form section.login-info label[for="join-password"] .visibility span{
+    display: none;
+}
+div.container form section.login-info label[for="join-password"] .visibility span.active{
+    display: block;
+}
 
 div.container form section.user-info .body-profile{
     display: flex;
@@ -74,6 +88,9 @@ div.container form div.submit input{
 }
 
 div.container form div.submit input.active{
-    cursor: pointer;
     background-color: var(--primary-color);
+}
+div.container form div.submit input.active:hover{
+    cursor: pointer;
+    background-color: var(--secondary-color);
 }
