@@ -8,32 +8,32 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../CSS/join.css">
+    <link rel="stylesheet" href="../../CSS/join.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <a href="../index.html">
+            <a href="../../index.html">
                 <span class="material-symbols-rounded">
                     food_bank
                 </span>
             </a>
         </header>
 
-        <form action="/" method="post">
+        <form>
             <section class="login-info">
-                <label for="join-id">
+                <label for="userId">
                     <span class="material-symbols-outlined">
                         Person
                     </span>
-                    <input type="text" id="join-id" placeholder="아이디" required>
+                    <input type="text" name="userId" id="userId" placeholder="아이디" required>
                 </label>
 
-                <label for="join-password">
+                <label for="password">
                     <span class="material-symbols-outlined">
                         lock
                     </span>
-                    <input type="password" name="" id="join-password" placeholder="비밀번호" required>
+                    <input type="password" name="password" id="password" placeholder="비밀번호" required>
                     <div class="visibility">
                         <span class="material-symbols-outlined on">
                             visibility
@@ -44,60 +44,60 @@
                     </div>
                 </label>
 
-                <label for="join-email">
+                <label for="email">
                     <span class="material-symbols-outlined">
                         mail
                     </span>
-                    <input type="email" name="" id="join-email" placeholder="이메일" required>
+                    <input type="email" name="email" id="email" placeholder="이메일" required>
                 </label>
             </section>
 
             <section class="user-info">
-                <label for="user-name">
+                <label for="user_name">
                     <span class="material-symbols-outlined">
                         Person
                     </span>
-                    <input type="text" id="user-name" placeholder="이름">
+                    <input type="text" name="user_name" id="user_name" placeholder="이름">
                 </label>
 
-                <label for="user-contact">
+                <label for="contact">
                     <span class="material-symbols-outlined">
                         phone_iphone
                     </span>
-                    <input type="text" id="user-contact" placeholder="연락처">
+                    <input type="text" name="contact" id="contact" placeholder="연락처">
                 </label>
 
                 <div class="body-profile">
-                    <label for="user-height">
+                    <label for="height">
                         <span class="material-symbols-outlined">
                             boy
                         </span>
-                        <input type="text" id="user-heigth" placeholder="신장">
+                        <input type="text" name="height" id="height" placeholder="신장">
                         <span>cm</span>
                     </label>
 
-                    <label for="user-weigth">
+                    <label for="weight">
                         <span class="material-symbols-outlined">
                             monitor_weight
                         </span>
-                        <input type="text" id="user-weight" placeholder="체중">
+                        <input type="text" name="weight" id="weight" placeholder="체중">
                         <span>kg</span>
                     </label>
                 </div>
                 
-                <label for="target-calorie">
+                <label for="goal">
                     <span class="material-symbols-outlined">
                         flag
                     </span>
-                    <input type="text" id="target-calorie" placeholder="목표 칼로리">
+                    <input type="text" name="goal" id="goal" placeholder="목표 칼로리">
                     <span>Kcal</span>
                 </label>
             </section>
             <div class="submit">
-                <input type="submit" value="가입하기" disabled>
+                <button type="button">가입하기</button>
             </div>
         </form>
     </div>
-    <script src="../JavaScript/join.js"></script>
+    <script src="../../JavaScript/join.js"></script>
 </body>
 </html>
