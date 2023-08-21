@@ -5,7 +5,7 @@ const { generateToken, isAuth } = require('../../auth')
 
 const router = express.Router()
 
-router.post('/register', expressAsyncHandler(async (req, res, next) => {
+router.post('/join', expressAsyncHandler(async (req, res, next) => {
     console.log(req.body)
     const user = new User({
         userId: req.body.userId,
@@ -18,6 +18,7 @@ router.post('/register', expressAsyncHandler(async (req, res, next) => {
         res.status(401).json({ code: 401, message: 'Invalid User Date'})
     }else{
         const { name, email, userId, isAdmin, createdAt } = newUser
+        console.log(newUser)
         res.json({
             code: 200,
             token: generateToken(newUser),
@@ -39,18 +40,18 @@ router.post('/login', expressAsyncHandler(async (req, res, next) => { // /api/us
         res.json({
             code: 200,
             token: generateToken(loginUser),
-            name, email, userId, isAdmin, createdAt
+            user_name, email, userId, isAdmin, createdAt
         })
     }
 })) 
 
-router.put('/:id', isAuth, expressAsyncHandler(async (req, res, next) => {
+router.put('/account', isAuth, expressAsyncHandler(async (req, res, next) => {
     const user = await User.findById(req.params.id)
     if(!user){
         res.status(404).json( { code: 404, message: 'User Not Found'})
     }else{
         user.imgUrl = req.body.imgUrl || user.imgUrl
-        user.name = req.body.name || user.name
+        user.user_name = req.body.user_name || user.user_name
         user.password = req.body.password || user.password
         user.isAdmin = req.body.isAdmin || user.isAdmin
         user.lastModifiedAt = new Date() // 수정 시간 업데이트
@@ -60,7 +61,7 @@ router.put('/:id', isAuth, expressAsyncHandler(async (req, res, next) => {
         res.json({
             code: 200,
             token: generateToken(updatedUser),
-            name, email, userId, isAdmin, createdAt
+            user_name, email, userId, isAdmin, createdAt
         })
     }
 }))
