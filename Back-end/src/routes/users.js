@@ -31,6 +31,7 @@ router.post('/join', expressAsyncHandler(async (req, res, next) => {
     }
 }))
 
+// 아이디 이메일 중복 확인
 router.post('/join/check', expressAsyncHandler(async (req, res, next) => {
     const userId = await User.findOne({
         userId: req.body.userId
@@ -38,7 +39,7 @@ router.post('/join/check', expressAsyncHandler(async (req, res, next) => {
     const userEmail = await User.findOne({
         email: req.body.email
     })
-    
+
     if(userId || userEmail){
         res.json({ code: 401, message: 'E11000 duplicate key error'})
     }else{
@@ -48,12 +49,18 @@ router.post('/join/check', expressAsyncHandler(async (req, res, next) => {
 
 router.post('/login', expressAsyncHandler(async (req, res, next) => { // /api/users/login
     console.log(req.body)
+    const loginId = await User.findOne({
+        userId: req.body.userId
+    })
     const loginUser = await User.findOne({
         userId: req.body.userId,
-        password: req.body.password,
+        password: req.body.password
     })
-    if(!loginUser){
-        res.status(401).json({ code: 401, message: 'Invalid Email or Password'})
+
+    if(!loginId){
+        res.status(404).json({ code: 404, message: 'User Not Found'})
+    }else if(!loginUser){
+        res.status(401).json({ code: 401, message: 'Invalid ID or Password'})
     }else{
         const { name, email, userId, isAdmin, createdAt } = loginUser
         res.json({
