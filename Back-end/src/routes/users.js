@@ -12,6 +12,10 @@ router.post('/join', expressAsyncHandler(async (req, res, next) => {
         password: req.body.password,
         email: req.body.email,
         name: req.body.name,
+        contact: req.body.contact,
+        height: req.body.height,
+        weight: req.body.weight,
+        goal: req.body.goal,
     })
     const newUser = await user.save()
     if(!newUser){
@@ -24,6 +28,21 @@ router.post('/join', expressAsyncHandler(async (req, res, next) => {
             token: generateToken(newUser),
             name, email, userId, isAdmin, createdAt
         })
+    }
+}))
+
+router.post('/join/check', expressAsyncHandler(async (req, res, next) => {
+    const userId = await User.findOne({
+        userId: req.body.userId
+    })
+    const userEmail = await User.findOne({
+        email: req.body.email
+    })
+    
+    if(userId || userEmail){
+        res.json({ code: 401, message: 'E11000 duplicate key error'})
+    }else{
+        res.json({ code: 200 })
     }
 }))
 
@@ -40,7 +59,7 @@ router.post('/login', expressAsyncHandler(async (req, res, next) => { // /api/us
         res.json({
             code: 200,
             token: generateToken(loginUser),
-            user_name, email, userId, isAdmin, createdAt
+            name, email, userId, isAdmin, createdAt
         })
     }
 })) 
@@ -51,7 +70,7 @@ router.put('/account', isAuth, expressAsyncHandler(async (req, res, next) => {
         res.status(404).json( { code: 404, message: 'User Not Found'})
     }else{
         user.imgUrl = req.body.imgUrl || user.imgUrl
-        user.user_name = req.body.user_name || user.user_name
+        user.name = req.body.name || user.name
         user.password = req.body.password || user.password
         user.isAdmin = req.body.isAdmin || user.isAdmin
         user.lastModifiedAt = new Date() // 수정 시간 업데이트
@@ -61,7 +80,7 @@ router.put('/account', isAuth, expressAsyncHandler(async (req, res, next) => {
         res.json({
             code: 200,
             token: generateToken(updatedUser),
-            user_name, email, userId, isAdmin, createdAt
+            name, email, userId, isAdmin, createdAt
         })
     }
 }))

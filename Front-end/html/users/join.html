@@ -20,13 +20,14 @@
             </a>
         </header>
 
-        <form>
+        <form name="join">
             <section class="login-info">
                 <label for="userId">
                     <span class="material-symbols-outlined">
                         Person
                     </span>
                     <input type="text" name="userId" id="userId" placeholder="아이디" required>
+                    <span class="checkId"></span>
                 </label>
 
                 <label for="password">
@@ -49,6 +50,7 @@
                         mail
                     </span>
                     <input type="email" name="email" id="email" placeholder="이메일" required>
+                    <span class="checkEmail"></span>
                 </label>
             </section>
 
@@ -90,7 +92,7 @@
                         flag
                     </span>
                     <input type="text" name="goal" id="goal" placeholder="목표 칼로리">
-                    <span>Kcal</span>
+                    <span>kcal</span>
                 </label>
             </section>
             <div class="submit">

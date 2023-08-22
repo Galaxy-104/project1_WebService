@@ -7,17 +7,17 @@ const usersRouter = require('./src/routes/users')
 const recordsRouter = require('./src/routes/records')
 const config = require('./config')
 
-// const corsOptions = { // CORS 옵션
-//     origin: 'http://127.0.0.1:5500', // 해당 URL 주소만 요청을 허락함
-//     credentials: true // 사용자 인증이 필요한 리소스를 요청할 수 있도록 허용함
-// }
+const corsOptions = { // CORS 옵션
+    origin: 'http://127.0.0.1:5501', // 해당 URL 주소만 요청을 허락함
+    credentials: true // 사용자 인증이 필요한 리소스를 요청할 수 있도록 허용함
+}
 
 // mongodb 연결하기
 mongoose.connect(config.MONGODB_URL)
 .then(() => console.log('mongodb connected...'))
 .catch(e => console.log(`failed to connect mongodb: ${e}`))
 
-
+app.use(cors(corsOptions))
 app.use(express.json()) // request body 파싱
 app.use(logger('tiny')) // Logger 설정
 
