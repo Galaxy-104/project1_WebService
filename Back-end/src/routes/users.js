@@ -63,9 +63,13 @@ router.post('/login', expressAsyncHandler(async (req, res, next) => { // /api/us
         res.status(401).json({ code: 401, message: 'Invalid ID or Password'})
     }else{
         const { name, email, userId, isAdmin, createdAt } = loginUser
-        res.json({
+
+        res.cookie('user', generateToken(loginUser),{
+            httpOnly: true,
+        })
+        
+        return res.json({
             code: 200,
-            token: generateToken(loginUser),
             name, email, userId, isAdmin, createdAt
         })
     }

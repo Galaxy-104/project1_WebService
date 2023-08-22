@@ -30,9 +30,9 @@ loginBtn.addEventListener('click', async function(){
     })
 
     const response = await res.json()
-    console.log(response)
     if(response.code === 200){
-        location.replace('http://127.0.0.1:5501/Front-end/html/records/home.html')
+        // location.replace('http://127.0.0.1:5501/Front-end/html/records/home.html')
+        console.log(response)
         message.innerHTML = ``
     }else if(response.code === 401){
         message.innerHTML = `아이디 또는 비밀번호가 일치하지 않습니다.`

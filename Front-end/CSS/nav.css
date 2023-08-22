@@ -46,9 +46,51 @@ nav .account{
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+    overflow: hidden;
+    position: relative;
 }
-nav .account a span{
+nav .account button{
+    border: none;
+    cursor: pointer;
+}
+nav .account button span{
     font-size: 2rem;
+}
+/* 계정 설정창 */
+nav div.set-account{
+    position: absolute;
+    bottom: -9rem;
+    right: .2rem;
+    border: 1px solid #909090;
+    width: 12rem;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+}
+nav div.set-account > div{
+    margin: .5rem;
+    width: 7rem;
+    height: 2.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+nav div.set-account > div > button{
+    border: 1px solid var(--primary-color);    
+    border-radius: .3rem;
+    width: 100%;
+    height: 100%;
+    font-size: .8rem;
+    background-color: #fff;    
+    color: var(--primary-color);
+}
+nav div.set-account > div > button:hover{
+    background-color: var(--primary-color);
+    color: #fff;
+    cursor: pointer;
 }
 
 /* 통계 버튼 */
@@ -83,13 +125,14 @@ nav .set-btn button span{
 }
 /* 설정 창 */
 nav .setting{
-    display: none;
+    display: block;
     position: absolute;
     bottom: -7rem;
     right: .5rem;
     border: 1px solid #909090;
     width: 12rem;
     padding: .5rem;
+    background-color: #fff;
 }
 /* 모드 설정 */
 nav .setting .mode{
@@ -120,4 +163,9 @@ nav .setting .mode > div span span{
     position: absolute;
     top: -.75rem;
     right: -2rem;
+    color: var(--primary-color);
+}
+nav .setting .mode > div.active{
+    border-color: var(--primary-color);
+    color: var(--yellow-1);
 }

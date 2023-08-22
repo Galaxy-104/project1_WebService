@@ -26,12 +26,22 @@
             <div class="btns">
                 <!-- 계정 버튼 -->
                 <div class="account">
-                    <a href="account.html">
+                    <button type="button">
                         <span class="material-symbols-rounded">
                             account_circle
                         </span>
-                    </a>
+                    </button>
                 </div>
+
+                <div class="set-account">
+                    <div class="alter-account">
+                        <button type="button">내 정보 변경</button>
+                    </div>
+                    <div class="logout">
+                        <button type="button">로그아웃</button>                        
+                    </div>
+                </div>
+
                 <!-- 통계 버튼 -->
                 <div class="stats">
                     <a href="stats.html">
@@ -53,7 +63,7 @@
                 <div class="setting">
                     <div class="mode">
                         <h3>화면 스타일</h3>
-                        <div class="light-mode">
+                        <div class="light-mode active">
                             <span class="material-symbols-rounded">
                                 light_mode
                                 <span class="material-symbols-rounded">
@@ -133,6 +143,7 @@
         </section>
     </main>
     <script src="../../JavaScript/calendar.js"></script>
+    <script src="../../JavaScript/nav.js"></script>
     <script src="../../JavaScript/home.js"></script>
 </body>
 </html>
