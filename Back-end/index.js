@@ -6,6 +6,7 @@ const mongoose = require('mongoose') // mongodb 모듈 연결
 const usersRouter = require('./src/routes/users')
 const recordsRouter = require('./src/routes/records')
 const config = require('./config')
+const cookieParser = require('cookie-parser')
 
 const corsOptions = { // CORS 옵션
     origin: 'http://127.0.0.1:5501', // 해당 URL 주소만 요청을 허락함
@@ -20,6 +21,7 @@ mongoose.connect(config.MONGODB_URL)
 app.use(cors(corsOptions))
 app.use(express.json()) // request body 파싱
 app.use(logger('tiny')) // Logger 설정
+app.use(cookieParser())
 
 app.use('/api/users', usersRouter)
 app.use('/api/records', recordsRouter)

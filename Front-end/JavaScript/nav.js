@@ -22,7 +22,7 @@ btns.addEventListener('click', function(e){
     }
 
     if(e.target.parentNode.className === 'alter-account'){
-        location.assign('http://127.0.0.1:5501/Front-end/html/users/account.html')
+        location.assign('http://127.0.0.1:5501/Front-end/html/account.html')
     }else if(e.target.parentNode.className === 'logout'){
         console.log('로그아웃')
     }

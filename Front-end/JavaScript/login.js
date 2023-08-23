@@ -20,6 +20,7 @@ form.addEventListener('input', function(e){
 loginBtn.addEventListener('click', async function(){
     const res = await fetch('http://localhost:5000/api/users/login', {
         method: 'POST',
+        credentials: 'include',
         headers: {
             'Content-Type': 'application/json'
         },
@@ -31,8 +32,10 @@ loginBtn.addEventListener('click', async function(){
 
     const response = await res.json()
     if(response.code === 200){
-        // location.replace('http://127.0.0.1:5501/Front-end/html/records/home.html')
         console.log(response)
+        console.log(document.cookie)
+        localStorage.setItem('token', document.cookie)
+        // location.assign('http://127.0.0.1:5501/Front-end/html/home.html')
         message.innerHTML = ``
     }else if(response.code === 401){
         message.innerHTML = `아이디 또는 비밀번호가 일치하지 않습니다.`

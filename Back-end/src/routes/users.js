@@ -63,12 +63,13 @@ router.post('/login', expressAsyncHandler(async (req, res, next) => { // /api/us
         res.status(401).json({ code: 401, message: 'Invalid ID or Password'})
     }else{
         const { name, email, userId, isAdmin, createdAt } = loginUser
-
-        res.cookie('user', generateToken(loginUser),{
-            httpOnly: true,
-        })
-        
-        return res.json({
+        return res.cookie('user', generateToken(loginUser),{
+            domain: 'http://127.0.0.1:5501',
+            sameSite:'none',
+            secure: true, // https, ssl 모드에서만
+            maxAge: 1000*60*60*24*1, // 1D
+            httpOnly: false, // javascript 로 cookie에 접근하지 못하게 한다.
+        }).json({
             code: 200,
             name, email, userId, isAdmin, createdAt
         })
