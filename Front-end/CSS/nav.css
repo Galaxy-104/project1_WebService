@@ -68,6 +68,9 @@ nav div.set-account{
     align-items: center;
     background: #fff;
 }
+nav div.set-account.active{
+    display: flex;
+}
 nav div.set-account > div{
     margin: .5rem;
     width: 7rem;
@@ -125,14 +128,18 @@ nav .set-btn button span{
 }
 /* 설정 창 */
 nav .setting{
-    display: block;
+    display: none;
+    flex-direction: column;
     position: absolute;
-    bottom: -7rem;
+    bottom: -8rem;
     right: .5rem;
     border: 1px solid #909090;
     width: 12rem;
     padding: .5rem;
     background-color: #fff;
+}
+nav .setting.active{
+    display: flex;
 }
 /* 모드 설정 */
 nav .setting .mode{
@@ -142,8 +149,8 @@ nav .setting .mode{
 nav .setting .mode h3{
     grid-column: 1 / 3;
     font-size: 1.2rem;
-    padding-bottom: .2rem;
-    margin-bottom: .2rem;
+    padding-bottom: .5rem;
+    margin-bottom: .5rem;
     border-bottom: 1px solid rgb(223, 220, 220);
 }
 nav .setting .mode > div{
@@ -155,17 +162,19 @@ nav .setting .mode > div{
     display: flex;
     justify-content: center;
     align-items: center;
-}
-nav .setting .mode > div span{
     position: relative;
+    margin: 0 1rem;
 }
-nav .setting .mode > div span span{
+nav .setting .mode > div span:nth-child(2){
     position: absolute;
-    top: -.75rem;
-    right: -2rem;
+    top: -.5rem;
+    right: -1.5rem;
     color: var(--primary-color);
 }
 nav .setting .mode > div.active{
     border-color: var(--primary-color);
     color: var(--yellow-1);
+}
+nav .setting .mode div.dark-mode span:nth-child(2){
+    display: none;
 }
