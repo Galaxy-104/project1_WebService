@@ -17,8 +17,14 @@ const thisMonth = today.getMonth() + 1
 function createCalendar(y, m){
     let index = 0
     let isDay = false
-    calendarTitle.innerHTML = `
-    ${monthName[m - 1]} ${y}`
+    if(m < 10){
+      calendarTitle.innerHTML = `
+        ${y}. 0${m}`  
+    }else{
+        calendarTitle.innerHTML = `
+        ${y}. ${m}`  
+    }
+    
     createWeeks()
     const days = getDays(y, m)
     contents.innerHTML = ``
@@ -144,18 +150,3 @@ calendarHeader.addEventListener('click', function(event){
         
 })
 
-// 원하는 날짜 선택하기
-contents.addEventListener('click', function(event){
-    const selectDay = calendar.querySelector('div.select')
-    if(event.target.className.includes('day') && 
-    !event.target.className.includes('today')){
-        if(selectDay !== null){
-            selectDay.classList.remove('select')
-        }
-        event.target.classList.add('select')
-    }else if(event.target.className.includes('today') && selectDay !== null){
-        selectDay.classList.remove('select')
-    }else if(selectDay !== null){
-        selectDay.classList.remove('select')
-    }
-})

@@ -1,3 +1,4 @@
+@import url(./reset.css);
 @import url(./nav.css);
 @import url(./calendar.css);
 
@@ -27,6 +28,7 @@ main .record h2{
     text-align: center;
     border-bottom: 1px solid var(--primary-color);
     margin: 2rem 0;
+    padding-bottom: .5rem;
 }
 main .record > div:not(.date){
     font-size: 1.5rem;
@@ -109,7 +111,7 @@ main .today-log h2{
 }
 main .today-log > div{
     position: relative;
-    min-height: 3rem;
+    margin-bottom: 3rem;
 }
 main .today-log > div:nth-child(1){
     margin-top: 3rem;
@@ -117,10 +119,20 @@ main .today-log > div:nth-child(1){
 main .today-log > div h3{
     font-size: 1.5rem;
     position: absolute;
-    top: -3.7rem;
+    top: -2rem;
     margin-left: .5rem;
 }
 main .today-log > div div.list{
     border-top: 1px solid var(--blank-color);
     min-height: .5rem;
+}
+main .today-log > div div.list ul{
+    padding: .5rem;
+}
+
+main .calendar .calendar_contents > div:not(.blank){
+    cursor: default;
+}
+main .calendar .calendar_contents > div.day:hover{
+    background-color: #fff;
 }
