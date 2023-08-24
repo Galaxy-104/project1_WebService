@@ -1,4 +1,3 @@
-console.log(localStorage.getItem('token'))
 
 // 원하는 날짜 선택하기
 contents.addEventListener('click', function(event){
@@ -15,3 +14,19 @@ contents.addEventListener('click', function(event){
         selectDay.classList.remove('select')
     }
 })
+
+async function loadPage(){
+    const userInfo = await fetch('http://localhost:5000/api/users/user', {
+    credentials: 'include',
+    headers: {
+        'Content-Type': 'application/json'
+    }
+    }).then(function(res){
+        return res.json()
+    }).then(function(data){
+        return data.user
+    })
+
+    console.log(userInfo)
+}
+loadPage()

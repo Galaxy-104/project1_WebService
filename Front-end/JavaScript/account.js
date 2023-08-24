@@ -1,6 +1,7 @@
 const form = document.querySelector('form')
 const inform_1 = form.querySelector('section.inform-1')
 const inform_2 = form.querySelector('section.inform-2')
+const profileImg = document.querySelector('.container div.profile-img img')
 
 const userId = inform_1.querySelector('span#userId')
 const userPassword = inform_1.querySelector('input#password')
@@ -30,3 +31,44 @@ visibility.addEventListener('click', function(e){
     }
 })
 
+async function loadPage(){
+    const userInfo = await fetch('http://localhost:5000/api/users/user', {
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+        })
+        .then(function(res){
+            return res.json()
+        })
+        .then(function(data){
+            return data.user
+        })
+
+    console.log(userInfo)
+
+    userName.value = userInfo.name
+    userEmail.innerHTML = userInfo.email
+    userId.innerHTML = userInfo.userId
+    contact.value = userInfo.contact
+
+    if(userInfo.weight !== undefined){
+       weight.value = userInfo.weight 
+    }
+    
+    if(userInfo.height !== undefined){
+        height.value = userInfo.height
+    }
+
+    if(userInfo.goal !== undefined){
+        goal.value = userInfo.goal
+    }
+
+    if(userInfo.imgUrl !== undefined){
+        profileImg.src = `${userInfo.imgUrl}`
+    }else{
+        profileImg.src = `https://t1.daumcdn.net/cfile/tistory/2513B53E55DB206927`
+    }
+
+}
+loadPage()

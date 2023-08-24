@@ -50,7 +50,6 @@ function createCalendar(y, m){
             // 오늘 날짜 확인
             if( y == today.getFullYear() && m == today.getMonth() + 1
             && today.getDate() === days[i].day){
-                console.log('오늘')
                 dateDiv.className = 'today'
             }else{
                 dateDiv.className = 'day'

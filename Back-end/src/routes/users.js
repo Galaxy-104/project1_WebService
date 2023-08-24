@@ -63,7 +63,7 @@ router.post('/login', expressAsyncHandler(async (req, res, next) => { // /api/us
         res.status(401).json({ code: 401, message: 'Invalid ID or Password'})
     }else{
         const { name, email, userId, isAdmin, createdAt } = loginUser
-        return res.cookie('user', generateToken(loginUser),{
+        return res.cookie('token', generateToken(loginUser),{
             domain: 'http://127.0.0.1:5501',
             sameSite:'none',
             secure: true, // https, ssl 모드에서만
@@ -76,15 +76,36 @@ router.post('/login', expressAsyncHandler(async (req, res, next) => { // /api/us
     }
 })) 
 
+// 페이지 이동시 유저 정보 불러오기
+router.get('/user', isAuth, expressAsyncHandler(async (req, res, next) => {
+    const user = await User.findOne({
+        _id: req.user._id
+    })
+    console.log(user)
+    const { name, userId, email, contact, height, weight, goal, imgUrl } = user
+
+    res.json({ 
+        code: 200,
+        user: { name, userId, email, contact, height, weight, goal, imgUrl } 
+    })
+
+
+}))
+
 router.put('/account', isAuth, expressAsyncHandler(async (req, res, next) => {
-    const user = await User.findById(req.params.id)
+    const user = await User.findOne({
+        _id: req.user._id
+    })
     if(!user){
         res.status(404).json( { code: 404, message: 'User Not Found'})
     }else{
         user.imgUrl = req.body.imgUrl || user.imgUrl
         user.name = req.body.name || user.name
-        user.password = req.body.password || user.password
-        user.isAdmin = req.body.isAdmin || user.isAdmin
+        if(req.body.password === ""){
+            user.password = user.password
+        }else{
+            user.password = req.body.password
+        }
         user.lastModifiedAt = new Date() // 수정 시간 업데이트
 
         const updatedUser = await user.save() // DB에 사용자정보 업데이트

@@ -32,14 +32,12 @@ loginBtn.addEventListener('click', async function(){
 
     const response = await res.json()
     if(response.code === 200){
-        console.log(response)
-        console.log(document.cookie)
-        localStorage.setItem('token', document.cookie)
-        // location.assign('http://127.0.0.1:5501/Front-end/html/home.html')
+        location.assign('http://127.0.0.1:5501/Front-end/html/home.html')
         message.innerHTML = ``
     }else if(response.code === 401){
         message.innerHTML = `아이디 또는 비밀번호가 일치하지 않습니다.`
     }else if(response.code === 404){
         message.innerHTML = `존재하지 않는 아이디입니다.`
     }
+    
 })

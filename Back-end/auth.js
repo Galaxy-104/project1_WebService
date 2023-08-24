@@ -4,7 +4,8 @@ const jwt = require('jsonwebtoken')
 const generateToken = (user) => { // 토큰 생성
     return jwt.sign({
         _id: user._id, // 사용자 정보 (json 문자열)
-        name: user.email,
+        name: user.name,
+        email: user.email,
         userId: user.userId,
         isAdmin: user.isAdmin,
         joinedAt: user.createdAt,
@@ -17,11 +18,12 @@ const generateToken = (user) => { // 토큰 생성
 }
 
 const isAuth = (req, res, next) => { // 권한을 확인하는 라우트핸들러
-    const bearerToken = req.headers.authorization // 요청 헤더의 authorization 속성 조회
-    if(!bearerToken){
+    const cookieToken = req.headers.cookie // 요청 헤더의 authorization 속성 조회
+    console.log(cookieToken)
+    if(!cookieToken){
         res.status(401).json({message: 'Token is not supplied'}) // 헤더에 토큰이 없는 경우
     }else{
-        const token = bearerToken.slice(7, bearerToken.length) // Bearer 글자를 제외한 실제 jwt토큰
+        const token = cookieToken.slice(6, cookieToken.length)
         // 복호화 과정
         jwt.verify(token, config.JWT_SECRET, (err, userInfo) => {
             if(err && err.name === 'TokenExpiredError'){ // 토큰 만료

@@ -31,7 +31,7 @@ router.get('/:id', isAuth, expressAsyncHandler(async (req, res, next) => {
 
 router.post('/', isAuth, expressAsyncHandler(async (req, res, next) => {
     const record = new Record({
-        author: req/user._id,
+        author: req.user._id,
         date: req.body.date,
         category: req.body.category,
         name: req.body.name,
