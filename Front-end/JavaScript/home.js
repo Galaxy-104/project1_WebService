@@ -17,16 +17,18 @@ contents.addEventListener('click', function(event){
 
 async function loadPage(){
     const userInfo = await fetch('http://localhost:5000/api/users/user', {
-    credentials: 'include',
-    headers: {
-        'Content-Type': 'application/json'
-    }
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json'
+        }
     }).then(function(res){
         return res.json()
     }).then(function(data){
+        console.log(data)
         return data.user
     })
-
+    
     console.log(userInfo)
 }
 loadPage()

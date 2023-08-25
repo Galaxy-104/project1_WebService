@@ -31,6 +31,9 @@ div.container .profile-img img{
     object-fit: cover;
     object-position: center;
 }
+div.container .profile-img input#fileUpload{
+    display: none;
+}
 
 div.container form section{
     display: flex;

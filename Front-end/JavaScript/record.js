@@ -53,3 +53,7 @@ addLog.addEventListener('click', async function(e){
     }
 })
 
+async function pageLoad(){
+    
+}
+pageLoad()
