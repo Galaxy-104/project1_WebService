@@ -90,7 +90,6 @@ router.get('/user', isAuth, expressAsyncHandler(async (req, res, next) => {
         user: { name, userId, email, contact, height, weight, goal, imgUrl } 
     })
 
-
 }))
 
 // 계정 정보 수정하기

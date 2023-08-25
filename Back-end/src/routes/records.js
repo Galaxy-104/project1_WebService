@@ -10,10 +10,19 @@ const router = express.Router()
 
 router.get('/', isAuth, expressAsyncHandler(async (req, res, next) => {
     const records = await Record.find({ author: req.user._id}).populate('author')
+    const todayRecords = records.map(function(record){
+        return { date: record.date,
+            category: record.category, 
+            name: record.name, 
+            calorie: record.calorie,
+            id: record._id
+        }
+    })
     if(records.length === 0){
         res.status(404).json({ code: 404, message: "Failed to find records"})
     }else{
-        res.json({ code: 200, todos })
+        res.json({ 
+            code: 200, todayRecords })
     }
 }))
 
@@ -43,10 +52,11 @@ router.post('/', isAuth, expressAsyncHandler(async (req, res, next) => {
     if(!newRecord){
         res.status(401).json({ code: 401, message: "Failed to save record"})
     }else{
+        const { date, category, name, calorie, _id } = newRecord
         res.status(201).json({
             code: 201,
             message: 'New record created',
-            newRecord
+            record: { _id, date, category, name, calorie }
         })
     }
 }))
