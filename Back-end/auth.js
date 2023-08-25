@@ -18,8 +18,9 @@ const generateToken = (user) => { // 토큰 생성
 }
 
 const isAuth = (req, res, next) => { // 권한을 확인하는 라우트핸들러
+    // console.log(req.headers)
     const cookieToken = req.headers.cookie // 요청 헤더의 authorization 속성 조회
-    console.log(cookieToken)
+    // console.log(cookieToken)
     if(!cookieToken){
         res.status(401).json({message: 'Token is not supplied'}) // 헤더에 토큰이 없는 경우
     }else{

@@ -68,7 +68,8 @@ router.post('/login', expressAsyncHandler(async (req, res, next) => { // /api/us
             sameSite:'none',
             secure: true, // https, ssl 모드에서만
             maxAge: 1000*60*60*24*1, // 1D
-            httpOnly: false, // javascript 로 cookie에 접근하지 못하게 한다.
+            httpOnly: true, // javascript 로 cookie에 접근하지 못하게 한다.
+            // domain: 'localhost'
         }).json({
             code: 200,
             name, email, userId, isAdmin, createdAt
@@ -92,6 +93,7 @@ router.get('/user', isAuth, expressAsyncHandler(async (req, res, next) => {
 
 }))
 
+// 계정 정보 수정하기
 router.put('/account', isAuth, expressAsyncHandler(async (req, res, next) => {
     const user = await User.findOne({
         _id: req.user._id
@@ -99,23 +101,29 @@ router.put('/account', isAuth, expressAsyncHandler(async (req, res, next) => {
     if(!user){
         res.status(404).json( { code: 404, message: 'User Not Found'})
     }else{
-        user.imgUrl = req.body.imgUrl || user.imgUrl
         user.name = req.body.name || user.name
         if(req.body.password === ""){
             user.password = user.password
         }else{
             user.password = req.body.password
         }
+        user.contact = req.body.contact,
+        user.height = req.body.height,
+        user.weight = req.body.weight,
         user.lastModifiedAt = new Date() // 수정 시간 업데이트
 
         const updatedUser = await user.save() // DB에 사용자정보 업데이트
-        const { name, email, userId, isAdmin, createdAt } = updatedUser
+        const { name, userId, email, contact, height, weight, goal, imgUrl } = updatedUser
         res.json({
             code: 200,
-            token: generateToken(updatedUser),
-            name, email, userId, isAdmin, createdAt
+            user: { name, userId, email, contact, height, weight, goal, imgUrl } 
         })
     }
+}))
+
+// 프로필 이미지 저장하기
+router.post('/profile', isAuth, expressAsyncHandler (async (req, res, next) => {
+    
 }))
 
 module.exports = router

@@ -7,6 +7,7 @@ const usersRouter = require('./src/routes/users')
 const recordsRouter = require('./src/routes/records')
 const config = require('./config')
 const cookieParser = require('cookie-parser')
+const multer = require('multer')
 
 const corsOptions = { // CORS 옵션
     origin: 'http://127.0.0.1:5501', // 해당 URL 주소만 요청을 허락함
@@ -22,6 +23,11 @@ app.use(cors(corsOptions))
 app.use(express.json()) // request body 파싱
 app.use(logger('tiny')) // Logger 설정
 app.use(cookieParser())
+
+app.use((req, res, next) => {
+    // console.log('미들웨어 쿠키: ', req.headers.cookie)
+    next()
+})
 
 app.use('/api/users', usersRouter)
 app.use('/api/records', recordsRouter)
