@@ -4,9 +4,112 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calorie Diary</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../CSS/search.css">
 </head>
 <body>
-    
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="../../index.html">
+                    <span class="material-symbols-rounded">
+                        food_bank
+                    </span>
+                </a>
+            </div>
+
+            <!-- 검색 버튼 -->
+            <div class="search">
+                <input type="text" id="search">
+                <span class="material-symbols-rounded">
+                    search
+                </span>
+            </div>
+                
+            <div class="btns">
+
+                <!-- 계정 버튼 -->
+                <div class="account">
+                    <button type="button">
+                        <span class="material-symbols-rounded">
+                            account_circle
+                        </span>
+                    </button>
+                </div>
+
+                <div class="set-account">
+                    <div class="alter-account">
+                        <button type="button">내 정보 변경</button>
+                    </div>
+                    <div class="logout">
+                        <button type="button">로그아웃</button>                        
+                    </div>
+                </div>
+
+                <!-- 통계 버튼 -->
+                <div class="stats">
+                    <a href="stats.html">
+                        <span class="material-symbols-outlined">
+                            equalizer
+                        </span>
+                    </a>
+                </div>
+
+                <!-- 설정 버튼 -->
+                <div class="set-btn">
+                    <button type="button">
+                        <span class="material-symbols-rounded">
+                            settings
+                        </span>
+                    </button>
+                </div>
+                <!-- 설정창 -->
+                <div class="setting">
+                    <div class="mode">
+                        <h3>화면 스타일</h3>
+                        <div class="light-mode active">
+                            <span class="material-symbols-rounded">
+                                light_mode
+                                
+                            </span>
+                            <span class="material-symbols-rounded">
+                                check
+                            </span>
+                        </div>
+                        <div class="dark-mode">
+                            <span class="material-symbols-rounded">
+                                dark_mode
+                            </span>
+                            <span class="material-symbols-rounded">
+                                check
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="result-container">
+        <div class="cards">
+            
+        </div>
+        <div class="page">
+            <span class="material-symbols-rounded">
+                arrow_back_ios
+            </span>
+            <div class="page-btn"></div>
+            <span class="material-symbols-rounded">
+                arrow_forward_ios
+            </span>
+        </div>
+    </section>
+
+    <script src="../JavaScript/nav.js"></script>
+    <script src="../JavaScript/search.js"></script>
 </body>
 </html>

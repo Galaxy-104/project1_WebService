@@ -113,6 +113,6 @@ submit.addEventListener('click', async function(e){
     const response = await res.json()
     console.log(response)
     if(response.code === 200){
-        location.replace('http://127.0.0.1:5501/Front-end/html/records/home.html')
+        location.replace('http://127.0.0.1:5501/Front-end/html/home.html')
     }
 })

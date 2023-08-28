@@ -17,6 +17,28 @@ nav .nav-container{
     margin: 0 auto;
 }
 
+/* 검색창 */
+nav div.search{
+    border: 1px solid #909090;
+    width: 18rem;
+    height: 2rem;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+nav div.search > *{
+    margin: 0 .2rem;
+}
+nav div.search input#search{
+    width: 15rem;
+    height: 1.8rem;
+    border: none;
+    background: var(--body-background-color);
+    outline: none;
+}
+
 /* 버튼 컨테이너 */
 nav .btns{
     position: relative;
@@ -25,9 +47,18 @@ nav .btns{
 nav .btns > div{
     margin: .2rem;
 }
+nav .btns > div:not(.auth){
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: 1px solid #909090;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /* 시작하기 버튼 */
-nav .auth{
+nav div.btns .auth{
     border: 1px solid #909090;
     width: 5rem;
     height: 2rem;
@@ -38,7 +69,7 @@ nav .auth{
 }
 
 /* 계정 설정 버튼 */
-nav .account{
+nav div.btns .account{
     width: 2.5rem;
     height: 2.5rem;
     border: 1px solid #909090;
@@ -49,13 +80,13 @@ nav .account{
     overflow: hidden;
     position: relative;
 }
-nav .account button{
+nav div.btns .account button{
     width: 100%;
     height: 100%;
     border: none;
     cursor: pointer;
 }
-nav .account button img{
+nav div.btns .account button img{
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -63,7 +94,7 @@ nav .account button img{
 }
 
 /* 계정 설정창 */
-nav div.set-account{
+nav div.btns div.set-account{
     position: absolute;
     bottom: -9rem;
     right: .2rem;
@@ -74,10 +105,10 @@ nav div.set-account{
     align-items: center;
     background: #fff;
 }
-nav div.set-account.active{
+nav div.btns div.set-account.active{
     display: flex;
 }
-nav div.set-account > div{
+nav div.btns div.set-account > div{
     margin: .5rem;
     width: 7rem;
     height: 2.2rem;
@@ -87,7 +118,7 @@ nav div.set-account > div{
 
     overflow: hidden;
 }
-nav div.set-account > div > button{
+nav div.btns div.set-account > div > button{
     border: 1px solid var(--primary-color);    
     border-radius: .3rem;
     width: 100%;
@@ -96,14 +127,14 @@ nav div.set-account > div > button{
     background-color: #fff;    
     color: var(--primary-color);
 }
-nav div.set-account > div > button:hover{
+nav div.btns div.set-account > div > button:hover{
     background-color: var(--primary-color);
     color: #fff;
     cursor: pointer;
 }
 
 /* 통계 버튼 */
-nav .stats{
+nav div.btns .stats{
     width: 2.5rem;
     height: 2.5rem;
     border: 1px solid #909090;
@@ -112,12 +143,12 @@ nav .stats{
     align-items: center;
     border-radius: 50%;
 }
-nav .account a span{
+nav div.btns .account a span{
     font-size: 2rem;
 }
 
 /* 설정 버튼 */
-nav .set-btn button{
+nav div.btns .set-btn button{
     border: none;
     background: none;
     width: 2.5rem;
@@ -128,12 +159,12 @@ nav .set-btn button{
     align-items: center;
     border-radius: 50%;
 }
-nav .set-btn button span{
+nav div.btns .set-btn button span{
     cursor: pointer;
     font-size: 2rem;
 }
 /* 설정 창 */
-nav .setting{
+nav div.btns .setting{
     display: none;
     flex-direction: column;
     position: absolute;
@@ -144,22 +175,22 @@ nav .setting{
     padding: .5rem;
     background-color: #fff;
 }
-nav .setting.active{
+nav div.btns .setting.active{
     display: flex;
 }
 /* 모드 설정 */
-nav .setting .mode{
+nav div.btns .setting .mode{
     width: 100%;
     display: grid;
 }
-nav .setting .mode h3{
+nav div.btns .setting .mode h3{
     grid-column: 1 / 3;
     font-size: 1.2rem;
     padding-bottom: .5rem;
     margin-bottom: .5rem;
     border-bottom: 1px solid rgb(223, 220, 220);
 }
-nav .setting .mode > div{
+nav div.btns .setting .mode > div{
     font-size: 1rem;
     border: 1px solid #909090;
     border-radius: 50%;
@@ -171,16 +202,16 @@ nav .setting .mode > div{
     position: relative;
     margin: 0 1rem;
 }
-nav .setting .mode > div span:nth-child(2){
+nav div.btns .setting .mode > div span:nth-child(2){
     position: absolute;
     top: -.5rem;
     right: -1.5rem;
     color: var(--primary-color);
 }
-nav .setting .mode > div.active{
+nav div.btns .setting .mode > div.active{
     border-color: var(--primary-color);
     color: var(--yellow-1);
 }
-nav .setting .mode div.dark-mode span:nth-child(2){
+nav div.btns .setting .mode div.dark-mode span:nth-child(2){
     display: none;
 }
